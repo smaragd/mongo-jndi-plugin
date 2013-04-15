@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- 
+	Include <resource> below in your context.xml file,
+	try loading bean lazily so you don't have to put 
+	mongo-jndi-plugin-X.Y.jar in your container shared library 
+	directory. 
+	
+
+	SPRING 3.X SAMPLE
+	In your applicationContext.xml (or whatever spring config file you like):		
+
+	<jee:jndi-lookup 
+		lazy-init="true" 
+		jndi-name="mongodb/MongoClientJndi" 
+		id="mongoClient"/>
+	
+	
+	In your java class:
+	@Autowired
+	@Qualifier("mongoClient")
+	MongoClient mongoClient;
+	
+-->
+ 
+
+  	<Resource 
+  		name="mongodb/MongoClientJndi" 
+  		auth="Container"
+        type="com.mongodb.MongoClient"
+        factory="com.mongodb.jndi.MongoClientJNDIFactory"
+        mongoClientURI="mongodb://username:password@yourdomain.com:27017,username:password@yourdomain.com:27017,yourdomain:27017/collection?waitqueuemultiple=1500&amp;w=1&amp;maxpoolsize=40&amp;safe=true"/>
+		
+</Context>
