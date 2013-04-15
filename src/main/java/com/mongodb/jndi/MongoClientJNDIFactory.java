@@ -59,19 +59,18 @@ public class MongoClientJNDIFactory implements ObjectFactory {
 		 MongoClientOptions o = uri.getOptions();
 
 		/* Show hosts and options		*/
-		StringBuilder s = new StringBuilder(newLine);
-		
+		StringBuilder s = new StringBuilder("*************** Mongo Client JNDI Factory ***************");
+		s.append(newLine);
 		for (String host: uri.getHosts()) {
 			s.append("Mongo host: ["); s.append(host); s.append("]"); s.append(newLine); 	
 		}
 		
 		if (o != null) {
-			s.append("Mongo options: ["); s.append(newLine); s.append(o.toString()); s.append("]"); s.append(newLine);
+			s.append("Mongo options set "); s.append(o.toString()); s.append(newLine);
 		}
 		/* Create mongoClient 			*/
 		MongoClient mongoClient = new MongoClient(uri);
 		
-		s.append("MongoClientJNDIFactory - [") ; s.append(s); s.append("]");
 		System.out.println( s );
 		
 		return mongoClient;
