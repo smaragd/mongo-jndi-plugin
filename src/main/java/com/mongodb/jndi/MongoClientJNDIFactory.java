@@ -6,7 +6,6 @@
 
 package com.mongodb.jndi;
 
-import java.rmi.UnexpectedException;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -50,7 +49,7 @@ public class MongoClientJNDIFactory implements ObjectFactory {
 		
 		
 		if (mongoURI == null || mongoURI.isEmpty()) {
-			throw new UnexpectedException(MONGO_CLIENT_URI + " resource property is empty");
+			throw new RuntimeException(MONGO_CLIENT_URI + " resource property is empty");
 		}
 		
 		/* Instantiate MongoClientURI	*/

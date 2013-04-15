@@ -10,7 +10,6 @@
 
 	SPRING 3.X SAMPLE
 	In your applicationContext.xml (or whatever spring config file you like):		
-
 	<jee:jndi-lookup 
 		lazy-init="true" 
 		jndi-name="mongodb/MongoClientJndi" 
@@ -23,13 +22,10 @@
 	MongoClient mongoClient;
 	
 -->
- 
 
-  	<Resource 
-  		name="mongodb/MongoClientJndi" 
-  		auth="Container"
-        type="com.mongodb.MongoClient"
-        factory="com.mongodb.jndi.MongoClientJNDIFactory"
-        mongoClientURI="mongodb://username:password@yourdomain.com:27017,username:password@yourdomain.com:27017,yourdomain:27017/collection?waitqueuemultiple=1500&amp;w=1&amp;maxpoolsize=40&amp;safe=true"/>
+
+<Resource name="mongodb/MongoClientJndi" auth="Container"
+	type="com.mongodb.MongoClient" factory="com.mongodb.jndi.MongoClientJNDIFactory"
+	mongoClientURI="mongodb://username:password@yourdomain.com:27017,username:password@yourdomain.com:27017,yourdomain:27017/collection?waitqueuemultiple=1500&amp;w=1&amp;maxpoolsize=40&amp;safe=true" />
 		
 </Context>
