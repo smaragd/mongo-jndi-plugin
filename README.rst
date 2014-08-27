@@ -100,7 +100,22 @@ in WildFly, your JavaEE project does not need to package this driver. In
 my web app's ``pom.xml`` file, I was able to mark the MongoDB Java driver as
 ``<scope>provided</scope>``.
 
-When you launch WildFly, the object factory should put your ``MongoClient``
+But for this to work, you need to `enable` the MongoDB Java driver module in
+your JavaEE application by creating a ``jboss-deployment-structure.xml`` file
+in the ``META-INF`` directory of your EAR or the ``WEB-INF`` directory of your
+WAR respectively::
+
+        <?xml version="1.0"?>
+        <jboss-deployment-structure>
+                <deployment>
+                        <dependencies>
+                                <module name="com.mongodb.driver" export="true"/>
+                        </dependencies>
+                </deployment>
+        </jboss-deployment-structure>
+
+
+When you then launch WildFly, the object factory should put your ``MongoClient``
 instance into JNDI and log something along these lines::
 
         16:13:16,106 INFO  [MongoClientObjectFactory] Initializing MongoClientObjectFactory
