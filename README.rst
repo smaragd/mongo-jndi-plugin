@@ -31,7 +31,7 @@ Copy the sample module structure under ``modules/com`` in this repository
 into your ``WILDFLY_ROOT/modules`` directory. Download the latest
 `MongoDB Java Driver <http://central.maven.org/maven2/org/mongodb/mongo-java-driver/>`_
 and place the JAR in ``WILDFLY_ROOT/modules/com/mongodb/driver/main/``, for
-example the ``mongo-java-driver-2.12.3.jar``.
+example the ``mongo-java-driver-3.2.2.jar``.
 
 Edit ``WILDFLY_ROOT/modules/com/mongodb/driver/main/module.xml`` and match the
 referenced JAR in the ``<resource-root ../>`` tag with the version you downloaded.
@@ -43,7 +43,7 @@ The directory should now look like this::
             └── driver
                 └── main
                     ├── module.xml
-                    └── mongo-java-driver-2.12.3.jar
+                    └── mongo-java-driver-3.2.2.jar
 
 
 Step 2 - Install the ``mongo-jndi-plugin`` as a module

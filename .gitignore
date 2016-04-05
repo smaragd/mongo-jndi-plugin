@@ -1,1 +1,6 @@
+# Ignore maven output
 target/*
+
+# Ignore IntelliJ artifacts
+/.idea
+/mongo-jndi-plugin.iml
